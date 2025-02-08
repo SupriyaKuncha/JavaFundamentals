@@ -1,18 +1,18 @@
 package BookManagement;
 
-//EBook class inherits from Book class
-public class EBook extends Book {
- private double fileSize; // in MB
- private String format; // format of the eBook (e.g., PDF, EPUB)
 
- // Constructor
+public class EBook extends Book {
+ private double fileSize; 
+ private String format; 
+
+ 
  public EBook(String title, String author, double price, double fileSize, String format) {
-     super(title, author, price); // Call the constructor of the superclass (Book)
+     super(title, author, price); 
      this.fileSize = fileSize;
      this.format = format;
  }
 
- // Getter and Setter methods for fileSize and format
+ 
  public double getFileSize() {
      return fileSize;
  }
@@ -29,7 +29,7 @@ public class EBook extends Book {
      this.format = format;
  }
 
- // Overridden method to display EBook info
+ 
  @Override
  public void displayBookInfo() {
      super.displayBookInfo(); // Display base book info

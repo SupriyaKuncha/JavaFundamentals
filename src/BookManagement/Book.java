@@ -1,19 +1,19 @@
 package BookManagement;
 
-//Base class for Book
+
 public class Book {
  private String title;
  private String author;
  private double price;
 
- // Constructor
+ 
  public Book(String title, String author, double price) {
      this.title = title;
      this.author = author;
      this.price = price;
  }
 
- // Getter and Setter methods
+ 
  public String getTitle() {
      return title;
  }
@@ -38,7 +38,7 @@ public class Book {
      this.price = price;
  }
 
- // Display book details
+ 
  public void displayBookInfo() {
      System.out.println("Title: " + title);
      System.out.println("Author: " + author);

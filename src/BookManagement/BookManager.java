@@ -2,26 +2,25 @@ package BookManagement;
 import java.util.Scanner;
 
 public class BookManager {
-    private Book[] bookList; // Array to manage books
-    private int bookCount; // To keep track of how many books are in the array
+    private Book[] bookList; 
+    private int bookCount; 
  
-    // Constructor to initialize the bookList array with a fixed size
     public BookManager(int capacity) {
-        bookList = new Book[capacity]; // Create array with the given capacity
-        bookCount = 0; // Initialize count to 0
+        bookList = new Book[capacity]; 
+        bookCount = 0; 
     }
  
-    // Method to add a book to the list
+    
     public void addBook(Book book) {
         if (bookCount < bookList.length) {
             bookList[bookCount] = book;
-            bookCount++; // Increment count after adding a book
+            bookCount++; 
         } else {
             System.out.println("Cannot add more books, array is full.");
         }
     }
  
-    // Method to display all books
+    
     public void displayAllBooks() {
         if (bookCount == 0) {
             System.out.println("No books available.");
@@ -33,7 +32,7 @@ public class BookManager {
         }
     }
  
-    // Method to search for books by title or author
+    
     public void searchBooks(String keyword) {
         boolean found = false;
         for (int i = 0; i < bookCount; i++) {
@@ -49,7 +48,7 @@ public class BookManager {
         }
     }
  
-    // Method to remove a book by title
+    
     public void removeBook(String title) {
         boolean found = false;
         for (int i = 0; i < bookCount; i++) {
@@ -58,8 +57,8 @@ public class BookManager {
                 for (int j = i; j < bookCount - 1; j++) {
                     bookList[j] = bookList[j + 1];
                 }
-                bookList[bookCount - 1] = null; // Nullify the last element
-                bookCount--; // Decrement book count
+                bookList[bookCount - 1] = null; 
+                bookCount--; 
                 found = true;
                 System.out.println("Book '" + title + "' has been removed.");
                 break;
@@ -70,7 +69,7 @@ public class BookManager {
         }
     }
  
-    // Method to update book details
+    
     public void updateBook(String oldTitle, String newTitle, String newAuthor, double newPrice) {
         boolean found = false;
         for (int i = 0; i < bookCount; i++) {
@@ -88,7 +87,7 @@ public class BookManager {
         }
     }
  
-    // Method to sort books by price
+    
     public void sortBooksByPrice() {
         for (int i = 0; i < bookCount - 1; i++) {
             for (int j = i + 1; j < bookCount; j++) {
@@ -105,23 +104,23 @@ public class BookManager {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
  
-        // Ask user for the number of books they want to manage
+        
         System.out.print("Enter the number of books you want to manage: ");
         int capacity = scanner.nextInt();
-        scanner.nextLine(); // Consume newline left by nextInt()
+        scanner.nextLine(); 
  
-        // Creating BookManager instance with the specified capacity
+        
         BookManager manager = new BookManager(capacity);
  
-        // Loop to take user input for each book
+       
         for (int i = 0; i < capacity; i++) {
             System.out.println("Enter details for Book " + (i + 1));
  
-            // Get the book type (Regular Book or EBook)
+            
             System.out.print("Is this a regular book (r) or an ebook (e)? ");
             String bookType = scanner.nextLine().toLowerCase();
  
-            // Book details common to both Book and EBook
+            
             System.out.print("Enter the title: ");
             String title = scanner.nextLine();
  
@@ -130,7 +129,7 @@ public class BookManager {
  
             System.out.print("Enter the price: ");
             double price = scanner.nextDouble();
-            scanner.nextLine(); // Consume newline left by nextDouble()
+            scanner.nextLine(); 
  
             if (bookType.equals("r")) {
                 // Regular Book
@@ -140,7 +139,7 @@ public class BookManager {
                 // EBook
                 System.out.print("Enter the file size (MB): ");
                 double fileSize = scanner.nextDouble();
-                scanner.nextLine(); // Consume newline left by nextDouble()
+                scanner.nextLine(); 
  
                 System.out.print("Enter the ebook format (e.g., PDF, EPUB): ");
                 String format = scanner.nextLine();
@@ -154,7 +153,7 @@ public class BookManager {
             System.out.println("-------------------------");
         }
  
-        // Main menu loop for interaction
+        
         boolean running = true;
         while (running) {
             System.out.println("Choose an option:");
@@ -166,7 +165,7 @@ public class BookManager {
             System.out.println("6. Exit");
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline left by nextInt()
+            scanner.nextLine(); 
  
             switch (choice) {
                 case 1:
@@ -191,7 +190,7 @@ public class BookManager {
                     String newAuthor = scanner.nextLine();
                     System.out.print("Enter the new price: ");
                     double newPrice = scanner.nextDouble();
-                    scanner.nextLine(); // Consume newline
+                    scanner.nextLine();
                     manager.updateBook(oldTitle, newTitle, newAuthor, newPrice);
                     break;
                 case 5:
@@ -207,7 +206,7 @@ public class BookManager {
             }
         }
  
-        scanner.close(); // Close the scanner object
+        scanner.close(); 
     }
 }
 
